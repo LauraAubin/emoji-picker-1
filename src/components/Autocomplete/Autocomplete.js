@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, List, Stack } from '@shopify/polaris';
 
 import { filterItems } from '../../utils';
+import './Autocomplete.css';
 
 export default class Autocomplete extends React.Component {
   state = {
@@ -14,7 +15,7 @@ export default class Autocomplete extends React.Component {
 
   render() {
     return (
-      <Stack vertical>
+      <Stack spacing="tight" vertical>
         <TextField
           placeholder="Search"
           value={this.state.value}
@@ -25,7 +26,12 @@ export default class Autocomplete extends React.Component {
             .map((item) => {
               return(
                 <List.Item key={item.value}>
-                  {item.value}
+                  <span
+                    className="Emoji"
+                    onClick={() => this.props.onSelect(item.value)}
+                  >
+                    {item.value}
+                  </span>
                 </List.Item>
               );
             })}
