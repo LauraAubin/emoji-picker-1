@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Page, Card } from '@shopify/polaris';
 
+import Autocomplete from './components/Autocomplete/Autocomplete';
+import emojiList from './emojiList.json';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +11,7 @@ class App extends Component {
       <Page title="Emoji Picker 🎩">
         <Card title="Search">
           <Card.Section>
-            <p>Polaris is awesome!</p>
+            <Autocomplete items={emojiList} />
           </Card.Section>
         </Card>
       </Page>
